@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://static.wixstatic.com https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'; upgrade-insecure-requests">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSRC8TVRQ9"></script>
 <script>
@@ -12,6 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0f0e0c">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Mahamoud Photography">
@@ -46,14 +48,18 @@
     "name":"Mahamoud Photography",
     "url":"https://www.mahamoudphotography.com",
     "priceRange":"$$-$$$",
-    "telephone":"(613) 600-7126",
     "email":"info@mahamoudphotography.ca",
     "image":"https://www.mahamoudphotography.com/images/hero-2.jpg",
     "description":"Documentary and editorial wedding photographer based in Ottawa, serving Ottawa, Toronto, and Montreal. Photojournalistic style, cinematic editing.",
     "address":{"@type":"PostalAddress","addressLocality":"Ottawa","addressRegion":"ON","addressCountry":"CA"},
     "areaServed":[{"@type":"City","name":"Ottawa"},{"@type":"City","name":"Toronto"},{"@type":"City","name":"Montreal"}],
     "sameAs":["https://www.instagram.com/mahamoud.photography"],
-    "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"3","bestRating":"5"}
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"3","bestRating":"5"},
+    "review":[
+      {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Birsen & Mustafa"},"reviewBody":"Looking at the photos made me feel like I was reliving the moments all over again. Mahamoud has this calm energy where you genuinely forget there is a camera there. Best decision we made for our wedding."},
+      {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Sara & Mohammad"},"reviewBody":"Mahamoud just blended right in — no hovering, no awkward posing, just quietly getting every moment. We are obsessed and have already recommended him to everyone we know."},
+      {"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Jaydeep"},"reviewBody":"As a camera-shy couple, we were amazed at how comfortable Mahamoud made us feel. The photos turned out so natural and cinematic that they exceeded all our expectations."}
+    ]
   },
   {
     "@type":"FAQPage",
@@ -73,13 +79,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero-2.jpg" fetchpriority="high">
 <style>
 /* ── RESET & ROOT ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
+  /* --cream & --charcoal are both #fff: used as on-gold / on-dark text colour */
   --cream:#ffffff;--charcoal:#ffffff;--mid:#f5f1eb;--dark:#ede8de;
   --text:#1c1916;--text-muted:#3d3028;
-  --gold:#b8924a;--gold-light:#c9a96e;--muted:#5a4d40;
+  --gold:#b8924a;--gold-light:#c9a96e;--gold-ink:#7c6126;--muted:#5a4d40;
   --border:rgba(184,146,74,0.18);--border-s:rgba(184,146,74,0.4);
   /* hero-only darks */
   --hero-bg:#0f0e0c;--hero-text:#f5f0e8;
@@ -89,7 +97,7 @@ section[id]{scroll-margin-top:80px}
 body{font-family:'Jost',sans-serif;background:#ffffff;color:var(--text);overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
 /* ── UTILITY ── */
-.section-label{font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:0.9rem;display:block}
+.section-label{font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:0.9rem;display:block}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:300;line-height:1.1;margin-bottom:1.5rem;color:var(--text)}
 .section-title em{font-style:italic;color:var(--gold)}
 .body-text{font-size:0.9rem;color:var(--text-muted);line-height:1.95;font-weight:400}
@@ -199,7 +207,7 @@ nav.solid .hamburger span{background:var(--text)}
 .pkg-custom-inner{max-width:560px;margin:0 auto;padding:3rem;border:1px solid var(--border);background:#ffffff}
 .pkg-custom-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--text);margin-bottom:1rem}
 .pkg-footnote{text-align:center;margin-top:2rem;font-size:0.78rem;color:var(--muted);line-height:1.8}
-.pkg-footnote a{color:var(--gold);text-decoration:none}
+.pkg-footnote a{color:var(--gold-ink);text-decoration:none}
 .addons{padding:3rem;border:1px solid var(--border);background:#ffffff;margin-top:0}
 .addons-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:1.5rem;color:var(--text)}
 .addons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
@@ -212,7 +220,7 @@ nav.solid .hamburger span{background:var(--text)}
 .port-tabs{display:flex;border:1px solid var(--border)}
 .tab-btn{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;background:none;border:none;border-right:1px solid var(--border);color:var(--muted);cursor:pointer;padding:0.7rem 1.3rem;transition:all 0.3s;white-space:nowrap}
 .tab-btn:last-child{border-right:none}
-.tab-btn.active,.tab-btn:hover{color:var(--gold);background:rgba(184,146,74,0.06)}
+.tab-btn.active,.tab-btn:hover{color:var(--gold-ink);background:rgba(184,146,74,0.06)}
 .port-grid{-webkit-columns:3;columns:3;-webkit-column-gap:4px;column-gap:4px}
 .p-item{-webkit-column-break-inside:avoid;break-inside:avoid;margin-bottom:4px;overflow:hidden;position:relative;cursor:pointer}
 .p-item img{width:100%;height:auto;display:block;transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);filter:saturate(0.75)}
@@ -224,15 +232,13 @@ nav.solid .hamburger span{background:var(--text)}
 
 /* ── VENUES ── */
 #venues{background:var(--mid);padding:7rem 4rem}
-.venue-card-name{color:var(--text)}
-.venue-tag{font-size:0.75rem;border:1px solid var(--border);padding:0.35rem 0.8rem;color:var(--text-muted)}
 .venues-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
 .venue-tags{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:2rem}
 .venue-tag{font-size:0.75rem;border:1px solid var(--border);padding:0.35rem 0.8rem;color:var(--text-muted)}
 .venues-cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
 .venue-card{background:#ffffff;padding:1.5rem}
-.venue-card-sub{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
-.venue-card-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cream);margin-bottom:0.3rem}
+.venue-card-sub{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:0.5rem}
+.venue-card-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);margin-bottom:0.3rem}
 .venue-card-desc{font-size:0.75rem;color:var(--muted)}
 
 /* ── HOW TO BOOK ── */
@@ -244,9 +250,9 @@ nav.solid .hamburger span{background:var(--text)}
 .b-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);opacity:0.35;line-height:1;flex-shrink:0;width:3.5rem;text-align:center;margin-top:-0.4rem}
 .b-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:0.5rem;color:var(--text)}
 .b-desc{font-size:0.82rem;color:var(--muted);line-height:1.8}
-.b-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:0.25rem 0.6rem;margin-top:0.6rem}
+.b-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-ink);border:1px solid var(--border);padding:0.25rem 0.6rem;margin-top:0.6rem}
 .contact-box{margin-top:3rem;padding:2rem;border:1px solid var(--border);background:var(--mid)}
-.contact-box-title{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.contact-box-title{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:1.2rem}
 .contact-row{display:flex;gap:0.8rem;align-items:center;font-size:0.85rem;margin-bottom:0.8rem}
 .contact-row a{color:var(--text-muted);text-decoration:none}
 .contact-row a:hover{color:var(--gold)}
@@ -278,7 +284,7 @@ nav.solid .hamburger span{background:var(--text)}
 .reviewer{display:flex;align-items:center;gap:1rem}
 .reviewer img{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--border)}
 .reviewer-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;margin-bottom:0.15rem;color:var(--text)}
-.reviewer-type{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold)}
+.reviewer-type{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-ink)}
 .stats-bar{background:#ffffff;border:1px solid var(--border);padding:2rem;margin-top:2.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
 .stat-block{text-align:center}
 .stat-block .n{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--gold);display:block;line-height:1}
@@ -293,7 +299,7 @@ nav.solid .hamburger span{background:var(--text)}
 .faq-item{background:#ffffff}
 .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 1.8rem;background:none;border:none;color:var(--text);cursor:pointer;font-family:'Jost',sans-serif;font-size:0.92rem;text-align:left;gap:1rem;transition:background 0.2s}
 .faq-q:hover{background:rgba(184,146,74,0.04)}
-.faq-q.open{color:var(--gold)}
+.faq-q.open{color:var(--gold-ink)}
 .faq-icon{font-size:1.3rem;color:var(--gold);flex-shrink:0;transition:transform 0.3s;line-height:1}
 .faq-q.open .faq-icon{transform:rotate(45deg)}
 .faq-a{display:none;padding:0 1.8rem 1.4rem;border-top:1px solid var(--border)}
@@ -303,7 +309,7 @@ nav.solid .hamburger span{background:var(--text)}
 /* ── INSTAGRAM ── */
 #instagram{background:var(--mid);padding:7rem 4rem;text-align:center}
 .ig-header{margin-bottom:3rem}
-.ig-handle{color:var(--gold);text-decoration:none;font-size:0.82rem;letter-spacing:0.1em}
+.ig-handle{color:var(--gold-ink);text-decoration:none;font-size:0.82rem;letter-spacing:0.1em}
 .ig-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:2.5rem}
 .ig-item{aspect-ratio:1;overflow:hidden;position:relative;display:block;text-decoration:none}
 .ig-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;filter:saturate(0.65)}
@@ -435,9 +441,6 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
 #back-to-top:hover{border-color:var(--gold);background:rgba(201,169,110,0.1)}
 #back-to-top svg{display:block}
 
-#wa-btn:hover{box-shadow:0 6px 24px rgba(37,211,102,0.55);transform:translateY(-2px)}
-#wa-btn svg{display:block}
-
 /* ── FORM SUCCESS STATE ── */
 .form-success{display:none;text-align:center;padding:3rem 2rem}
 .form-success.show{display:block}
@@ -461,7 +464,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
 /* ── HERO MOBILE FALLBACK ── */
 @media(max-width:960px){
   #hero{background:linear-gradient(135deg,#0f0e0c 0%,#1a1814 100%)}
-  .hero-bg{background:url('https://static.wixstatic.com/media/56cd31_4c45944ba7674c6fa3892b6d7efcc218~mv2.jpg/v1/fill/w_800,h_1000,al_c,q_85,enc_avif,quality_auto/56cd31_4c45944ba7674c6fa3892b6d7efcc218~mv2.jpg') center/cover no-repeat;opacity:0.22}
+  .hero-bg{background:url('images/hero-2.jpg') center/cover no-repeat;opacity:0.22}
 }
 </style>
 </head>
@@ -472,9 +475,8 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
 
 <!-- BACK TO TOP -->
 <button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </button>
-
 
 <!-- BANNER -->
 <div id="banner">
@@ -486,7 +488,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
 <!-- NAV -->
 <nav id="navbar">
   <a href="#hero" class="nav-brand">
-    <svg width="42" height="42" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+    <svg width="42" height="42" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="80" cy="80" r="72" fill="none" stroke="#c9a96e" stroke-width="2" opacity="0.95"/>
       <circle cx="80" cy="80" r="60" fill="none" stroke="#c9a96e" stroke-width="2.5" opacity="0.95"/>
       <g transform="translate(80,80)">
@@ -514,7 +516,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
     <li><a href="#booking">Contact</a></li>
   </ul>
   <a href="#booking" class="nav-cta">Book Now</a>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobMenu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- MOBILE MENU -->
@@ -532,13 +534,13 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-photos">
-    <img src="images/hero-1.jpg" alt="Wedding photography Ottawa" style="object-position:center top">
-    <img src="images/hero-2.jpg" alt="Cinematic wedding portrait" style="object-position:center 20%">
-    <img src="images/hero-3.jpg" alt="Ottawa couples photography" style="object-position:center top">
+    <img src="images/hero-1.jpg" alt="Wedding photography in Ottawa" width="900" height="600" fetchpriority="high" decoding="async" style="object-position:center top">
+    <img src="images/hero-2.jpg" alt="Cinematic wedding portrait, Ottawa" width="900" height="600" fetchpriority="high" decoding="async" style="object-position:center 20%">
+    <img src="images/hero-3.jpg" alt="Ottawa couples photography" width="600" height="900" decoding="async" style="object-position:center top">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-mark">
-    <svg width="100%" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+    <svg width="100%" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="300" cy="145" r="78" fill="none" stroke="#c9a96e" stroke-width="1.5"/>
       <circle cx="300" cy="145" r="66" fill="none" stroke="#c9a96e" stroke-width="2"/>
       <g transform="translate(300,145)">
@@ -582,7 +584,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
 <section id="about">
   <div class="about-grid">
     <div class="about-imgs anim">
-      <img class="about-main" src="images/about.png" alt="Mahamoud Ahmed, Photographer">
+      <img class="about-main" src="images/about.png" alt="Mahamoud Ahmed, Ottawa wedding photographer" width="1376" height="768" loading="lazy" decoding="async">
       <div class="about-badge"><span class="n">4+</span><span class="l">Years<br>Experience</span></div>
     </div>
     <div class="anim" style="transition-delay:0.15s">
@@ -777,20 +779,20 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
     </div>
   </div>
   <div class="port-grid" id="portGrid">
-    <div class="p-item" data-cat="weddings" onclick="openLB(0)"><img src="images/port-0.jpg" alt="Ottawa wedding ceremony photography by Mahamoud — lakeside ceremony" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Lakeside Ceremony</span></div></div></div>
-    <div class="p-item" data-cat="weddings" onclick="openLB(1)"><img src="images/port-1.jpg" alt="Candid wedding couple photo Ottawa — documentary wedding photography" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Together</span></div></div></div>
-    <div class="p-item" data-cat="weddings" onclick="openLB(2)"><img src="images/port-2.jpg" alt="Wedding grand entrance photography Ottawa — Mahamoud Photography" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Grand Entrance</span></div></div></div>
-    <div class="p-item" data-cat="weddings" onclick="openLB(3)"><img src="images/port-3.jpg" alt="Ottawa wedding cake cutting — photojournalistic wedding photography" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Cake Cutting</span></div></div></div>
-    <div class="p-item" data-cat="weddings" onclick="openLB(4)"><img src="images/port-4.jpg" alt="Wedding head table photo Ottawa — cinematic wedding photographer" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Head Table</span></div></div></div>
-    <div class="p-item" data-cat="weddings" onclick="openLB(5)"><img src="images/port-5.jpg" alt="Wedding reception details Ottawa — editorial wedding photography" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Table Details</span></div></div></div>
-    <div class="p-item" data-cat="portraits" onclick="openLB(6)"><img src="images/port-6.jpg" alt="Ottawa couple portrait photography — engagement session" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Ottawa Couple</span></div></div></div>
-    <div class="p-item" data-cat="portraits" onclick="openLB(7)"><img src="images/port-7.jpg" alt="Ottawa engagement photography — couples portrait session" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Gazebo Dance</span></div></div></div>
-    <div class="p-item" data-cat="portraits" onclick="openLB(8)"><img src="images/port-8.jpg" alt="Candid couples photography Ottawa — natural portrait photographer" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Laughing Together</span></div></div></div>
-    <div class="p-item" data-cat="portraits" onclick="openLB(9)"><img src="images/port-9.jpg" alt="Ottawa portrait photographer — editorial portrait session" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Portrait</span></div></div></div>
-    <div class="p-item" data-cat="portraits" onclick="openLB(10)"><img src="images/port-10.jpg" alt="Ottawa portrait photography — cinematic couples session" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Portrait II</span></div></div></div>
-    <div class="p-item" data-cat="portraits" onclick="openLB(11)"><img src="images/port-11.jpg" alt="Golden hour couples photography Ottawa — engagement photographer" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Golden Hour</span></div></div></div>
-    <div class="p-item" data-cat="portraits" onclick="openLB(12)"><img src="images/port-12.jpg" alt="Waterside engagement photography Ottawa — romantic couples portrait" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Waterside Romance</span></div></div></div>
-    <div class="p-item" data-cat="events" onclick="openLB(13)"><img src="images/port-13.jpg" alt="Ottawa event photography — candid documentary event photographer" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Events</span><span class="p-label">In the Moment</span></div></div></div>
+    <div class="p-item" data-cat="weddings" onclick="openLB(0)"><img src="images/port-0.jpg" width="900" height="600" decoding="async" alt="Ottawa wedding ceremony photography by Mahamoud — lakeside ceremony" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Lakeside Ceremony</span></div></div></div>
+    <div class="p-item" data-cat="weddings" onclick="openLB(1)"><img src="images/port-1.jpg" width="600" height="900" decoding="async" alt="Candid wedding couple photo Ottawa — documentary wedding photography" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Together</span></div></div></div>
+    <div class="p-item" data-cat="weddings" onclick="openLB(2)"><img src="images/port-2.jpg" width="900" height="600" decoding="async" alt="Wedding grand entrance photography Ottawa — Mahamoud Photography" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Grand Entrance</span></div></div></div>
+    <div class="p-item" data-cat="weddings" onclick="openLB(3)"><img src="images/port-3.jpg" width="900" height="600" decoding="async" alt="Ottawa wedding cake cutting — photojournalistic wedding photography" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Cake Cutting</span></div></div></div>
+    <div class="p-item" data-cat="weddings" onclick="openLB(4)"><img src="images/port-4.jpg" width="900" height="600" decoding="async" alt="Wedding head table photo Ottawa — cinematic wedding photographer" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Head Table</span></div></div></div>
+    <div class="p-item" data-cat="weddings" onclick="openLB(5)"><img src="images/port-5.jpg" width="600" height="900" decoding="async" alt="Wedding reception details Ottawa — editorial wedding photography" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Weddings</span><span class="p-label">Table Details</span></div></div></div>
+    <div class="p-item" data-cat="portraits" onclick="openLB(6)"><img src="images/port-6.jpg" width="600" height="900" decoding="async" alt="Ottawa couple portrait photography — engagement session" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Ottawa Couple</span></div></div></div>
+    <div class="p-item" data-cat="portraits" onclick="openLB(7)"><img src="images/port-7.jpg" width="600" height="900" decoding="async" alt="Ottawa engagement photography — couples portrait session" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Gazebo Dance</span></div></div></div>
+    <div class="p-item" data-cat="portraits" onclick="openLB(8)"><img src="images/port-8.jpg" width="600" height="900" decoding="async" alt="Candid couples photography Ottawa — natural portrait photographer" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Laughing Together</span></div></div></div>
+    <div class="p-item" data-cat="portraits" onclick="openLB(9)"><img src="images/port-9.jpg" width="600" height="900" decoding="async" alt="Ottawa portrait photographer — editorial portrait session" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Portrait</span></div></div></div>
+    <div class="p-item" data-cat="portraits" onclick="openLB(10)"><img src="images/port-10.jpg" width="600" height="900" decoding="async" alt="Ottawa portrait photography — cinematic couples session" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Portrait II</span></div></div></div>
+    <div class="p-item" data-cat="portraits" onclick="openLB(11)"><img src="images/port-11.jpg" width="600" height="900" decoding="async" alt="Golden hour couples photography Ottawa — engagement photographer" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Golden Hour</span></div></div></div>
+    <div class="p-item" data-cat="portraits" onclick="openLB(12)"><img src="images/port-12.jpg" width="600" height="900" decoding="async" alt="Waterside engagement photography Ottawa — romantic couples portrait" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Portraits</span><span class="p-label">Waterside Romance</span></div></div></div>
+    <div class="p-item" data-cat="events" onclick="openLB(13)"><img src="images/port-13.jpg" width="600" height="900" decoding="async" alt="Ottawa event photography — candid documentary event photographer" loading="lazy"><div class="p-overlay"><div><span class="p-cat">Events</span><span class="p-label">In the Moment</span></div></div></div>
   </div>
 </section>
 
@@ -804,7 +806,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
       <p class="body-text">I've shot at most of Ottawa's major venues and outdoor spots, so I already know where the light works, where to position you, and what to avoid. That local knowledge saves a lot of time on the day.</p>
       <p class="body-text" style="margin-top:1rem">Whether it's downtown Parliament Hill or a countryside estate in the Gatineau Hills — I've shot it, and I'll make it look great.</p>
       <div style="margin-top:2rem">
-        <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Popular Photo Spots</div>
+        <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:1rem">Popular Photo Spots</div>
         <div class="venue-tags">
           <span class="venue-tag">Parliament Hill</span>
           <span class="venue-tag">Rideau Canal</span>
@@ -848,7 +850,6 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
       </div>
       <div class="contact-box anim" style="transition-delay:0.15s">
         <div class="contact-box-title">Direct Contact</div>
-        <div class="contact-row"><a href="tel:6136007126">(613) 600-7126</a></div>
         <div class="contact-row"><a href="mailto:info@mahamoudphotography.ca">info@mahamoudphotography.ca</a></div>
         <div class="contact-row"><a href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener">@mahamoud.photography</a></div>
         <div class="contact-row"><a href="https://www.mahamoudphotography.com" style="color:var(--text-muted);text-decoration:none">mahamoudphotography.com</a></div>
@@ -857,23 +858,25 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
     <!-- FORM -->
     <div class="form-box anim" style="transition-delay:0.15s">
       <div class="form-success" id="formSuccess">
-        <div class="form-success-icon" style="width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;color:var(--gold);font-size:1.4rem"><div class="form-success-icon">✉️</div>#10003;</div>
+        <div class="form-success-icon" style="width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;color:var(--gold);font-size:1.4rem" aria-hidden="true">&#10003;</div>
         <div class="form-success-title">Message Received!</div>
         <p class="form-success-text">Thanks for reaching out! I'll review your inquiry and be in touch soon to chat about your date and what you're looking for.</p>
         <a href="#portfolio" class="btn-outline" style="margin-top:1.5rem;display:inline-block">View Portfolio →</a>
       </div>
       <div class="form-fields" id="formFields">
       <div class="form-title">Book Your Session</div>
-      <div class="form-sub">I'll be in touch to confirm availability.</div>
+      <div class="form-sub">I personally reply to every inquiry — usually within 24 hours.</div>
+      <form id="bookingForm" novalidate>
+      <input type="text" name="company" id="company_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
       <div class="form-row2">
-        <div class="fg"><label for="fname">First Name *</label><input type="text" id="fname" placeholder="Jane" autocomplete="given-name"><span class="field-error">Please enter your first name.</span></div>
+        <div class="fg"><label for="fname">First Name *</label><input type="text" id="fname" placeholder="Jane" autocomplete="given-name" required aria-required="true"><span class="field-error">Please enter your first name.</span></div>
         <div class="fg"><label for="lname">Last Name *</label><input type="text" id="lname" placeholder="Smith" autocomplete="family-name"></div>
       </div>
-      <div class="fg"><label for="email">Email Address *</label><input type="email" id="email" placeholder="jane@email.com" autocomplete="email"><span class="field-error">Please enter a valid email address.</span></div>
+      <div class="fg"><label for="email">Email Address *</label><input type="email" id="email" placeholder="jane@email.com" autocomplete="email" required aria-required="true"><span class="field-error">Please enter a valid email address.</span></div>
       <div class="fg"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="(613) 000-0000" autocomplete="tel"></div>
       <div class="fg">
         <label for="service">Type of Session *</label>
-        <select id="service">
+        <select id="service" required aria-required="true">
           <option value="" disabled selected>Select a service...</option>
           <option>Engagement &amp; Couples Session ($499)</option>
           <option>Wedding — Essential, 6 hrs ($2,000)</option>
@@ -892,7 +895,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
       <div class="form-row2">
         <div class="fg"><label for="date">Event Date</label><input type="date" id="date"></div>
         <div class="fg">
-          <label>City</label>
+          <label for="city">City</label>
           <select id="city">
             <option value="" disabled selected>Select city...</option>
             <option>Ottawa, ON</option>
@@ -902,8 +905,9 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
           </select>
         </div>
       </div>
-      <div class="fg"><label>Tell Me About Your Vision</label><textarea id="message" placeholder="Share details about your event, ideas, or any questions..."></textarea></div>
-      <button class="submit-btn" id="submitBtn" onclick="submitForm()">Send My Inquiry</button>
+      <div class="fg"><label for="message">Tell Me About Your Vision</label><textarea id="message" placeholder="Share details about your event, ideas, or any questions..."></textarea></div>
+      <button type="submit" class="submit-btn" id="submitBtn">Send My Inquiry</button>
+      </form>
       <div class="form-promise">Every inquiry is personally reviewed.</div>
       </div><!-- /.form-fields -->
     </div>
@@ -929,7 +933,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
       <div class="review-stars">★★★★★</div>
       <p class="review-text">Looking at the photos made me feel like I was reliving the moments all over again. Mahamoud has this calm energy where you genuinely forget there's a camera there. The ceremony photos especially, we couldn't believe those were us. Best decision we made for our wedding.</p>
       <div class="reviewer">
-        <img src="https://static.wixstatic.com/media/56cd31_937687a4f18749058695aadf31aab8aa~mv2.jpg/v1/crop/x_1548,y_0,w_3996,h_4000/fill/w_267,h_333,al_c,q_80,enc_avif,quality_auto/IMG_4527.jpg" alt="Birsen and Mustafa">
+        <img src="https://static.wixstatic.com/media/56cd31_937687a4f18749058695aadf31aab8aa~mv2.jpg/v1/crop/x_1548,y_0,w_3996,h_4000/fill/w_267,h_333,al_c,q_80,enc_avif,quality_auto/IMG_4527.jpg" alt="Birsen and Mustafa" width="50" height="50" loading="lazy" decoding="async">
         <div><div class="reviewer-name">Birsen &amp; Mustafa</div><div class="reviewer-type">Wedding Photography — Ottawa</div></div>
       </div>
     </div>
@@ -938,7 +942,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
       <div class="review-stars">★★★★★</div>
       <p class="review-text">Honestly had no idea what to expect having a photographer at a baby shower, but Mahamoud just blended right in — no hovering, no awkward posing, just quietly getting every moment. We're obsessed with them and have already recommended him to everyone we know.</p>
       <div class="reviewer">
-        <img src="https://static.wixstatic.com/media/56cd31_ea4e7cbda3f74a2d9a370b8b7c5797a4~mv2.jpg/v1/fill/w_267,h_333,al_c,q_80,enc_avif,quality_auto/IMG_3053.jpg" alt="Sara and Mohammad">
+        <img src="https://static.wixstatic.com/media/56cd31_ea4e7cbda3f74a2d9a370b8b7c5797a4~mv2.jpg/v1/fill/w_267,h_333,al_c,q_80,enc_avif,quality_auto/IMG_3053.jpg" alt="Sara and Mohammad" width="50" height="50" loading="lazy" decoding="async">
         <div><div class="reviewer-name">Sara &amp; Mohammad</div><div class="reviewer-type">Baby Shower Photography — Ottawa</div></div>
       </div>
     </div>
@@ -947,7 +951,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
       <div class="review-stars">★★★★★</div>
       <p class="review-text">As a camera-shy couple, we were amazed at how comfortable Mahamoud made us feel — we ended up laughing and just being ourselves. The photos turned out so natural and cinematic that they exceeded all our expectations. We keep coming back to look at them.</p>
       <div class="reviewer">
-        <img src="https://static.wixstatic.com/media/56cd31_14536faba53647e4b70c850ac9582c76~mv2.jpg/v1/crop/x_0,y_661,w_3935,h_5241/fill/w_267,h_333,al_c,q_80,enc_avif,quality_auto/IMG_0551.jpg" alt="Jaydeep">
+        <img src="https://static.wixstatic.com/media/56cd31_14536faba53647e4b70c850ac9582c76~mv2.jpg/v1/crop/x_0,y_661,w_3935,h_5241/fill/w_267,h_333,al_c,q_80,enc_avif,quality_auto/IMG_0551.jpg" alt="Jaydeep" width="50" height="50" loading="lazy" decoding="async">
         <div><div class="reviewer-name">Jaydeep</div><div class="reviewer-type">Couples Photoshoot — Ottawa</div></div>
       </div>
     </div>
@@ -974,35 +978,35 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
     </div>
     <div class="faq-list anim" style="transition-delay:0.1s">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>How far in advance should I book?</span><span class="faq-icon">+</span></button>
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span>How far in advance should I book?</span><span class="faq-icon">+</span></button>
         <div class="faq-a"><p>For weddings, the earlier the better — 6 to 12 months out is ideal, especially for summer and fall dates. Those weekends go fast. For portraits or smaller events, a few weeks notice usually works fine.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>What is your photography style?</span><span class="faq-icon">+</span></button>
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span>What is your photography style?</span><span class="faq-icon">+</span></button>
         <div class="faq-a"><p>I shoot documentary-style — mostly candid, real moments, with some light direction when needed. Editing-wise I go for rich tones and a cinematic look. Nothing trendy that'll look dated in a few years.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>How many photos will I receive?</span><span class="faq-icon">+</span></button>
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span>How many photos will I receive?</span><span class="faq-icon">+</span></button>
         <div class="faq-a"><p>Depends on the package — Engagement &amp; Couples comes with 25+, Essential with 200+, Signature with 300+, and Premium with 400+. For full weddings it often runs higher depending on how much is happening throughout the day.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>How long does it take to receive my photos?</span><span class="faq-icon">+</span></button>
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span>How long does it take to receive my photos?</span><span class="faq-icon">+</span></button>
         <div class="faq-a"><p>I turn galleries around faster than most — you won't be waiting months. The exact timeline depends on the size of the shoot, but I'll always give you a clear timeframe upfront.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>Do you travel for weddings outside Ottawa?</span><span class="faq-icon">+</span></button>
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span>Do you travel for weddings outside Ottawa?</span><span class="faq-icon">+</span></button>
         <div class="faq-a"><p>Yes — I shoot in Toronto and Montreal regularly, and I'm open to destination weddings anywhere in Canada. Travel to Toronto and Montreal can be added to any package. Just ask about pricing.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>What happens if it rains on my wedding day?</span><span class="faq-icon">+</span></button>
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span>What happens if it rains on my wedding day?</span><span class="faq-icon">+</span></button>
         <div class="faq-a"><p>Rain honestly makes for some of the best photos — moody, dramatic, different. I've shot plenty of rainy days and always come prepared. We'll work with it.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>What is your payment and cancellation policy?</span><span class="faq-icon">+</span></button>
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span>What is your payment and cancellation policy?</span><span class="faq-icon">+</span></button>
         <div class="faq-a"><p>A 50% retainer holds your date, with the remainder due 2 weeks before the event. If something comes up and you need to cancel, reach out — I'll always try to work something out.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>We're shy in front of cameras — is that okay?</span><span class="faq-icon">+</span></button>
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span>We're shy in front of cameras — is that okay?</span><span class="faq-icon">+</span></button>
         <div class="faq-a"><p>Most people say this. Honestly, by the end of the shoot they forget I'm even there. I keep things low-key, give easy direction, and let things happen naturally. It usually works out just fine.</p></div>
       </div>
     </div>
@@ -1021,11 +1025,11 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
     <a href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener" class="ig-handle">@mahamoud.photography</a>
   </div>
   <div class="ig-grid">
-    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-1.jpg" alt="Lakeside Ceremony" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-2.jpg" alt="Ottawa Couple" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-3.jpg" alt="Grand Entrance" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-4.jpg" alt="BMW at Sunset" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
-    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-5.jpg" alt="In the Moment" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
+    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-1.jpg" width="900" height="600" decoding="async" alt="Lakeside Ceremony" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
+    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-2.jpg" width="600" height="900" decoding="async" alt="Ottawa Couple" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
+    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-3.jpg" width="900" height="600" decoding="async" alt="Grand Entrance" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
+    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-4.jpg" width="900" height="602" decoding="async" alt="BMW at Sunset" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
+    <a class="ig-item" href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener"><img src="images/ig-5.jpg" width="600" height="900" decoding="async" alt="In the Moment" loading="lazy"><div class="ig-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
   </div>
 </section>
 
@@ -1034,7 +1038,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
   <div class="cities-inner">
     <span class="section-label">Available Across Canada</span>
     <h2 class="section-title" style="margin-bottom:1rem">Serving <em>Ottawa, Toronto &amp; Montreal</em></h2>
-    <p class="body-text" style="max-width:680px;margin:0 auto">Based in Ottawa, Ontario, I photograph weddings, engagements, and events across the National Capital Region and beyond. From Château Laurier ceremonies downtown to countryside estates in Wakefield and Almonte — and destination weddings in Toronto and Montreal. Couples searching for a <em style="color:var(--gold)">wedding photographer Ottawa</em>, <em style="color:var(--gold)">wedding photographer Toronto</em>, or <em style="color:var(--gold)">wedding photographer Montreal</em> all lead here for a reason.</p>
+    <p class="body-text" style="max-width:680px;margin:0 auto">Based in Ottawa, Ontario, I photograph weddings, engagements, and events across the National Capital Region and beyond. From Château Laurier ceremonies downtown to countryside estates in Wakefield and Almonte — and destination weddings in Toronto and Montreal. Couples searching for a <em style="color:var(--gold-ink)">wedding photographer Ottawa</em>, <em style="color:var(--gold-ink)">wedding photographer Toronto</em>, or <em style="color:var(--gold-ink)">wedding photographer Montreal</em> all lead here for a reason.</p>
     <div class="cities-row">
       <div><span class="city-name">Ottawa</span><span class="city-sub">Home Base · Ontario</span></div>
       <span class="city-sep">·</span>
@@ -1052,7 +1056,7 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
   <div class="foot-grid">
     <div>
       <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.5rem">
-        <svg width="30" height="30" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg"><circle cx="80" cy="80" r="72" fill="none" stroke="#c9a96e" stroke-width="2" opacity="0.95"/><circle cx="80" cy="80" r="60" fill="none" stroke="#c9a96e" stroke-width="2.5" opacity="0.95"/><g transform="translate(80,80)"><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(60)"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(120)"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(180)"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(240)"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(300)"/><circle cx="0" cy="0" r="11" fill="none" stroke="#c9a96e" stroke-width="1" opacity="0.6"/><rect x="-14" y="-12" width="3" height="24" fill="#c9a96e"/><rect x="11" y="-12" width="3" height="24" fill="#c9a96e"/><polygon points="-14,-12 -11,-12 0,4 -3,4" fill="#c9a96e"/><polygon points="14,-12 11,-12 0,4 3,4" fill="#c9a96e"/></g></svg>
+        <svg width="30" height="30" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="80" cy="80" r="72" fill="none" stroke="#c9a96e" stroke-width="2" opacity="0.95"/><circle cx="80" cy="80" r="60" fill="none" stroke="#c9a96e" stroke-width="2.5" opacity="0.95"/><g transform="translate(80,80)"><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(60)"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(120)"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(180)"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(240)"/><path d="M0,-48 L-12,-24 L0,-16 L12,-24 Z" fill="#0f0e0c" stroke="#c9a96e" stroke-width="0.8" opacity="0.9" transform="rotate(300)"/><circle cx="0" cy="0" r="11" fill="none" stroke="#c9a96e" stroke-width="1" opacity="0.6"/><rect x="-14" y="-12" width="3" height="24" fill="#c9a96e"/><rect x="11" y="-12" width="3" height="24" fill="#c9a96e"/><polygon points="-14,-12 -11,-12 0,4 -3,4" fill="#c9a96e"/><polygon points="14,-12 11,-12 0,4 3,4" fill="#c9a96e"/></g></svg>
         <span style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;letter-spacing:0.15em;color:var(--cream)">Mahamoud<span style="color:var(--gold)">.</span></span>
       </div>
       <p class="foot-brand-text">Ottawa · Toronto · Montreal photographer. Weddings, couples, events — real moments, cinematic style, no pressure.</p>
@@ -1085,7 +1089,6 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
     </div>
     <div>
       <span class="foot-col-title">Get in Touch</span>
-      <div class="foot-contact-item"><span class="foot-contact-label">Phone</span><div class="foot-contact-value"><a href="tel:6136007126">(613) 600-7126</a></div></div>
       <div class="foot-contact-item"><span class="foot-contact-label">Email</span><div class="foot-contact-value"><a href="mailto:info@mahamoudphotography.ca">info@mahamoudphotography.ca</a></div></div>
       <div class="foot-contact-item"><span class="foot-contact-label">Instagram</span><div class="foot-contact-value"><a href="https://www.instagram.com/mahamoud.photography" target="_blank" rel="noopener">@mahamoud.photography</a></div></div>
       <div class="foot-contact-item"><span class="foot-contact-label">Serving</span><div class="foot-contact-value">Ottawa · Toronto · Montreal</div></div>
@@ -1099,11 +1102,11 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
 </footer>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lb" onclick="closeLBbg(event)">
-  <button class="lb-close" onclick="closeLB()">×</button>
-  <button class="lb-prev" onclick="lbNav(-1)">‹</button>
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Portfolio image viewer" onclick="closeLBbg(event)">
+  <button class="lb-close" onclick="closeLB()" aria-label="Close image viewer">×</button>
+  <button class="lb-prev" onclick="lbNav(-1)" aria-label="Previous image">‹</button>
   <img id="lbImg" src="" alt="">
-  <button class="lb-next" onclick="lbNav(1)">›</button>
+  <button class="lb-next" onclick="lbNav(1)" aria-label="Next image">›</button>
 </div>
 
 <script>
@@ -1119,8 +1122,8 @@ function setScrollPadding() {
 }
 setScrollPadding();
 window.addEventListener('resize', setScrollPadding);
-function toggleMenu(){ document.getElementById('mobMenu').classList.toggle('open'); document.body.style.overflow = document.getElementById('mobMenu').classList.contains('open') ? 'hidden' : ''; }
-function closeMenu(){ document.getElementById('mobMenu').classList.remove('open'); document.body.style.overflow = ''; }
+function toggleMenu(){ const m=document.getElementById('mobMenu'); const open=m.classList.toggle('open'); document.body.style.overflow=open?'hidden':''; const h=document.querySelector('.hamburger'); if(h) h.setAttribute('aria-expanded', open?'true':'false'); }
+function closeMenu(){ document.getElementById('mobMenu').classList.remove('open'); document.body.style.overflow=''; const h=document.querySelector('.hamburger'); if(h) h.setAttribute('aria-expanded','false'); }
 
 // ── SCROLL PROGRESS BAR & BACK-TO-TOP ──
 const progressBar = document.getElementById('scroll-progress');
@@ -1133,7 +1136,6 @@ window.addEventListener('scroll', () => {
   const show = scrollTop > 400;
   backToTop.classList.toggle('visible', show);
 }, { passive: true });
-
 
 // ── SCROLL ANIMATIONS — always visible, animate in on scroll ──
 function initAnims() {
@@ -1209,8 +1211,8 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLB(); if(e.k
 function toggleFaq(btn){
   const a = btn.nextElementSibling;
   const wasOpen = btn.classList.contains('open');
-  document.querySelectorAll('.faq-q').forEach(b=>{ b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
-  if(!wasOpen){ btn.classList.add('open'); a.classList.add('open'); }
+  document.querySelectorAll('.faq-q').forEach(b=>{ b.classList.remove('open'); b.setAttribute('aria-expanded','false'); b.nextElementSibling.classList.remove('open'); });
+  if(!wasOpen){ btn.classList.add('open'); btn.setAttribute('aria-expanded','true'); a.classList.add('open'); }
 }
 
 // ── ANIMATED COUNTERS ──
@@ -1251,7 +1253,10 @@ function clearFieldError(id) {
   if (el) el.addEventListener('change', () => clearFieldError(id));
 });
 
-function submitForm() {
+function submitForm(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  const hp = document.getElementById('company_hp');
+  if (hp && hp.value) { return; }  // honeypot: silently drop bots
   let valid = true;
 
   const fname = document.getElementById('fname');
@@ -1285,6 +1290,8 @@ function submitForm() {
   btn.textContent = 'Sending...';
 
   const data = {
+    _subject: 'New booking inquiry from ' + fname.value.trim() + ' (' + (service.value || 'photography') + ')',
+    _replyto: email.value.trim(),
     name:    fname.value.trim() + ' ' + document.getElementById('lname').value.trim(),
     email:   email.value.trim(),
     phone:   document.getElementById('phone').value.trim(),
@@ -1319,6 +1326,7 @@ function submitForm() {
     alert('Something went wrong. Please try again or email me directly at info@mahamoudphotography.ca');
   });
 }
+document.getElementById('bookingForm').addEventListener('submit', submitForm);
 </script>
 </body>
 </html>
