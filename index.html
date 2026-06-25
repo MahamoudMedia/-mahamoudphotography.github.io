@@ -88,7 +88,7 @@
   --cream:#ffffff;--charcoal:#ffffff;--mid:#f5f1eb;--dark:#ede8de;
   --text:#1c1916;--text-muted:#3d3028;
   --gold:#b8924a;--gold-light:#c9a96e;--gold-ink:#7c6126;--muted:#5a4d40;
-  --border:rgba(184,146,74,0.18);--border-s:rgba(184,146,74,0.4);
+  --border:rgba(40,30,18,0.1);--border-s:rgba(40,30,18,0.2);
   /* hero-only darks */
   --hero-bg:#0f0e0c;--hero-text:#f5f0e8;
 }
@@ -97,10 +97,10 @@ section[id]{scroll-margin-top:80px}
 body{font-family:'Jost',sans-serif;background:#ffffff;color:var(--text);overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
 /* ── UTILITY ── */
-.section-label{font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:0.9rem;display:block}
+.section-label{font-size:0.72rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:0.9rem;display:block}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:300;line-height:1.1;margin-bottom:1.5rem;color:var(--text)}
 .section-title em{font-style:italic;color:var(--gold)}
-.body-text{font-size:0.9rem;color:var(--text-muted);line-height:1.95;font-weight:400}
+.body-text{font-size:0.95rem;color:var(--text-muted);line-height:1.95;font-weight:400}
 .divider{width:60px;height:1px;background:var(--gold);margin:1.5rem 0}
 a,button,input,select,textarea{touch-action:manipulation}
 .btn-gold{display:inline-block;padding:1rem 2.5rem;background:var(--gold);color:#ffffff;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;border:none;cursor:pointer;transition:background 0.3s}
@@ -163,7 +163,7 @@ nav.solid .hamburger span{background:var(--text)}
 @keyframes drop{0%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(0);transform-origin:bottom}}
 
 /* ── ABOUT ── */
-#about{background:var(--mid);padding:8rem 4rem}
+#about{background:var(--mid);padding:5.5rem 4rem}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
 .about-imgs{position:relative;height:640px}
 .about-main{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:92%;height:92%;object-fit:cover;object-position:center 20%}
@@ -183,11 +183,11 @@ nav.solid .hamburger span{background:var(--text)}
 
 /* ── WHY ── */
 /* ── PACKAGES ── */
-#packages{background:var(--mid);padding:8rem 4rem}
-.pkg-philosophy{text-align:center;max-width:720px;margin:0 auto 5rem;padding-bottom:4rem;border-bottom:1px solid var(--border)}
+#packages{background:var(--mid);padding:5rem 4rem}
+.pkg-philosophy{text-align:center;max-width:720px;margin:0 auto 3.25rem;padding-bottom:2.75rem;border-bottom:1px solid var(--border)}
 .pkg-philosophy .divider{margin:1.5rem auto}
 .pkg-philosophy-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:300;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:1.5rem}
-.pkg-row{display:grid;grid-template-columns:80px 1fr;gap:0 3rem;padding:4rem 0;border-bottom:1px solid var(--border)}
+.pkg-row{display:grid;grid-template-columns:80px 1fr;gap:0 3rem;padding:3rem 0;border-bottom:1px solid var(--border)}
 .pkg-row-num{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(184,146,74,0.12);line-height:1;padding-top:0.25rem;user-select:none}
 .pkg-row-body{position:relative}
 .pkg-row-badge{display:inline-block;background:var(--gold);color:#fff;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.3rem 1rem;margin-bottom:1rem}
@@ -215,7 +215,7 @@ nav.solid .hamburger span{background:var(--text)}
 .addon::before{content:'✦';color:var(--gold);font-size:0.6rem;flex-shrink:0}
 
 /* ── PORTFOLIO ── */
-#portfolio{background:#ffffff;padding:8rem 4rem}
+#portfolio{background:#14110d;padding:6rem 4rem}
 .port-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1.5rem}
 .port-tabs{display:flex;border:1px solid var(--border)}
 .tab-btn{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;background:none;border:none;border-right:1px solid var(--border);color:var(--muted);cursor:pointer;padding:0.7rem 1.3rem;transition:all 0.3s;white-space:nowrap}
@@ -223,7 +223,7 @@ nav.solid .hamburger span{background:var(--text)}
 .tab-btn.active,.tab-btn:hover{color:var(--gold-ink);background:rgba(184,146,74,0.06)}
 .port-grid{-webkit-columns:3;columns:3;-webkit-column-gap:4px;column-gap:4px}
 .p-item{-webkit-column-break-inside:avoid;break-inside:avoid;margin-bottom:4px;overflow:hidden;position:relative;cursor:pointer}
-.p-item img{width:100%;height:auto;display:block;transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);filter:saturate(0.75)}
+.p-item img{width:100%;height:auto;display:block;transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);filter:saturate(1)}
 .p-item:hover img{transform:scale(1.07);filter:saturate(1)}
 .p-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,14,12,0.9),transparent 55%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:1.5rem}
 .p-item:hover .p-overlay{opacity:1}
@@ -231,7 +231,7 @@ nav.solid .hamburger span{background:var(--text)}
 .p-label{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--cream)}
 
 /* ── VENUES ── */
-#venues{background:var(--mid);padding:7rem 4rem}
+#venues{background:var(--mid);padding:5rem 4rem}
 .venues-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
 .venue-tags{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:2rem}
 .venue-tag{font-size:0.75rem;border:1px solid var(--border);padding:0.35rem 0.8rem;color:var(--text-muted)}
@@ -272,7 +272,7 @@ nav.solid .hamburger span{background:var(--text)}
 .form-promise::before{content:'✓';color:var(--gold)}
 
 /* ── TESTIMONIALS ── */
-#testimonials{background:var(--mid);padding:8rem 4rem}
+#testimonials{background:var(--mid);padding:5.5rem 4rem}
 .test-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem;flex-wrap:wrap;gap:1.5rem}
 .test-rating{text-align:right}
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -292,7 +292,7 @@ nav.solid .hamburger span{background:var(--text)}
 .stat-div{width:1px;height:50px;background:var(--border)}
 
 /* ── FAQ ── */
-#faq{background:#ffffff;padding:8rem 4rem}
+#faq{background:#ffffff;padding:5.5rem 4rem}
 .faq-wrap{max-width:900px;margin:0 auto}
 .faq-header{text-align:center;margin-bottom:4rem}
 .faq-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
@@ -307,12 +307,12 @@ nav.solid .hamburger span{background:var(--text)}
 .faq-a.open{display:block}
 
 /* ── INSTAGRAM ── */
-#instagram{background:var(--mid);padding:7rem 4rem;text-align:center}
+#instagram{background:var(--mid);padding:5rem 4rem;text-align:center}
 .ig-header{margin-bottom:3rem}
 .ig-handle{color:var(--gold-ink);text-decoration:none;font-size:0.82rem;letter-spacing:0.1em}
 .ig-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:2.5rem}
 .ig-item{aspect-ratio:1;overflow:hidden;position:relative;display:block;text-decoration:none}
-.ig-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;filter:saturate(0.65)}
+.ig-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;filter:saturate(0.92)}
 .ig-item:hover img{transform:scale(1.09);filter:saturate(1)}
 .ig-overlay{position:absolute;inset:0;background:rgba(15,14,12,0.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s}
 .ig-item:hover .ig-overlay{opacity:1}
@@ -466,6 +466,19 @@ footer{background:#1c1916;padding:5rem 4rem 3rem;border-top:1px solid rgba(184,1
   #hero{background:linear-gradient(135deg,#0f0e0c 0%,#1a1814 100%)}
   .hero-bg{background:url('images/hero-2.jpg') center/cover no-repeat;opacity:0.22}
 }
+
+/* ── v2.0 DESIGN REFINEMENTS ── */
+/* Dark portfolio section — resets page rhythm + lets the photography pop */
+#portfolio .section-title{color:#f5f0e8}
+#portfolio .section-title em{color:var(--gold-light)}
+#portfolio .section-label{color:var(--gold-light)}
+#portfolio .body-text,#portfolio p{color:rgba(245,240,232,0.6)}
+#portfolio .port-tabs{border-color:rgba(201,169,110,0.28)}
+#portfolio .tab-btn{color:rgba(245,240,232,0.6);border-right-color:rgba(201,169,110,0.28)}
+#portfolio .tab-btn.active,#portfolio .tab-btn:hover{color:var(--gold-light);background:rgba(201,169,110,0.12)}
+/* Featured package — clearer visual distinction */
+.pkg-row-featured{background:linear-gradient(180deg,rgba(184,146,74,0.07),transparent 72%)}
+.pkg-row-featured .pkg-row-features li::before{color:var(--gold)}
 </style>
 </head>
 <body>
